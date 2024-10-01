@@ -71,8 +71,13 @@ The data shows that the white race is more in favor of capital punishment, while
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+table2 <- xtabs(~cappun + race, data=mydata)
+rowPerc(table2)
+colPerc(table2)
+```
 
-
+The white group has a percentage of 65.1 of favor with a 34.9 to oppose. While the Black group has a 42.63 to favor and a 57.37 to oppose. While the other race group can be seen with a 55.2 favor and 44.8 oppose. The white group has the highest amount of favor and biggest percentage on its side, Black group is second and would have more favor in the oppose with other race group last.
 
 ## Now with More data
 
