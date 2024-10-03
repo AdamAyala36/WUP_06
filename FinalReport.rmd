@@ -82,9 +82,18 @@ The white group is in favor with cappun with about a 2:1 ratio, the black group 
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
-`
+```{r}
+chisq.test(table2)
+chisqtestGC(table2)
+```
 
+The p-values shown is 0.00005896 because it is low we know something is going on so we must do a fisherXY test. 
 
+```{r}
+fisherXY(mydata$race,mydata$cappun, confL = 0.99, printAll = TRUE)
+```
+
+The p-value shown for the comparison of white and black is 0.00001741, the p-value comparison of white and other is 0.2565, and the p-value for the comparison of the black and other group is 0.06299. These p-values are low showing that these data points have differences from one another.
 
 # Discussion and Conclusion
 
