@@ -35,6 +35,9 @@ If not, then whose view differs from whom??
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
 
 ## Descriptive Results
+### Graphical Descriptive Results
+
+<!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
 
 ```{r}
 dd3 <- mydata %>% group_by(cappun,race) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
@@ -51,11 +54,8 @@ basicCC <- ggplot(dd3,aes(x=race,y=prcnt*100,fill=cappun))
 basicCC + geom_bar(stat="identity", position = "dodge")
 ```
 
-The black group has a more that oppose over favor. While the white group have more in favor compared to oppose. Compared to the other group having a very small difference of more opposing over favoring. 
+Looking at the graph with count we can see the black group has a more that oppose over favor. While the white group have more in favor compared to oppose. Compared to the other group having a very small difference of more opposing over favoring. 
 
-### Graphical Descriptive Results
-
-<!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
 
 
 
@@ -69,9 +69,13 @@ The black group has a more that oppose over favor. While the white group have mo
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+table2 <- xtabs(~cappun + race, data=mydata)
+rowPerc(table2)
+colPerc(table2)
+```
 
-
-
+The white group is in favor with cappun with about a 2:1 ratio, the black group are slightly against cappun, and the other group is against caappun by around a 3:2. 
 
 
 ## Inferential Results
